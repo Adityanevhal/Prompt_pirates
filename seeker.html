@@ -5,41 +5,54 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>LocoLink | Dashboard</title>
   <link rel="stylesheet" href="style3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
 </head>
 <body style="background-image: url('1755863042727.jpg'); background-size:cover;">
 
-
+  <!-- Navbar -->
   <nav class="navbar">
-   <img src="LocoLinkLogo.jpg" alt="locolink Logo">
-    <input type="text" placeholder="Search jobs or companies" class="search-bar">
-    <div class="nav-links">
+    <div class="nav-left">
+      <img src="LocoLinkLogo.jpg" alt="LocoLink Logo" class="logo">
+    </div>
+
+    <div class="search-bar">
+      <span class="material-symbols-outlined search-icon">search</span>
+      <input type="text" placeholder="Search jobs or companies">
+    </div>
+
+    <div class="nav-center">
+      <a href="index.html">Home</a>
+      <a href="#">Saved Jobs</a>
+      <a href="#">My Availability</a>
+      <a href="#">Settings</a>
+    </div>
+
+    <div class="nav-right">
       <a href="#">Profile</a>
       <a href="#">Messages</a>
     </div>
   </nav>
 
+  <!-- Main Content -->
   <div class="container">
-   
-  <aside class="sidebar">
-  <h3>Navigation</h3>
-  <ul>
-    <li><a href="index.html" class="nav-link active">Home</a></li>
-    <li><a href="saved.html" class="nav-link">Saved Jobs</a></li>
-    <li><a href="availability.html" class="nav-link">My Availability</a></li>
-    <li><a href="settings.html" class="nav-link">Settings</a></li>
-  </ul>
-  </aside>
+    <!-- Left Sidebar -->
+    <aside class="sidebar">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="#">Nearby Jobs</a></li>
+        <li><a href="#">Top Companies</a></li>
+        <li><a href="#">Job Alerts</a></li>
+      </ul>
+    </aside>
 
-
-
-  
+    <!-- Center: Jobs Section -->
     <main class="main-content">
       <section class="jobs">
         <h3>Part-Time Jobs Near You</h3>
 
         <div class="job-card">
           <h4>🍔 Zesty Bites - Food Delivery Assistant</h4>
-          <p>Evenings | ₹150/hr | 3 km away from ycce</p>
+          <p>Evenings | ₹150/hr | 3 km away from YCCE</p>
           <button class="apply-btn">Apply Now</button>
         </div>
 
@@ -48,20 +61,28 @@
           <p>Weekends | ₹120/hr | 1.5 km away S.B.JAIN</p>
           <button class="apply-btn">Apply Now</button>
         </div>
+
+        <div class="job-card">
+          <h4>☕ Cafe Bliss - Helper</h4>
+          <p>Mornings | ₹100/hr | 2 km away from DMMC</p>
+          <button class="apply-btn">Apply Now</button>
+        </div>
       </section>
     </main>
 
-   
+    <!-- Right: Profile Section -->
     <aside class="profile">
       <h3>Your Profile</h3>
-      <div class="profile-pic"> <img src="1_1.jpg" alt="Profile Picture"></div>
+      <div class="profile-pic">
+        <img src="1_1.jpg" alt="Profile Picture">
+      </div>
       <h4>Aditya Nevhal</h4>
       <p>YCCE Student | 2nd Year</p>
       <button class="edit-btn">Edit Profile</button>
     </aside>
   </div>
 
- 
+  <!-- Notifications -->
   <section class="notifications">
     <h3>Notifications</h3>
     <ul>
@@ -72,3 +93,5 @@
 
 </body>
 </html>
+
+
