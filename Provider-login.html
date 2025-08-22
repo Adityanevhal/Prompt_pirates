@@ -120,7 +120,7 @@
       <button type="submit" class="btn">Login</button>
     </form>
     <div class="signup-link">
-      Don’t have an account? <a href="#">Sign Up</a>
+      Don’t have an account? <a href="Provider-signup.html">Sign Up</a>
     </div>
   </div>
 
@@ -153,15 +153,28 @@
 
       if (valid) {
         // Redirect back to home after login
-        window.location.href = "home.html";
+        window.location.href = "provider.html";
       }
     });
   </script>
    <script>
-  document.getElementById("loginForm").addEventListener("submit", function(event) {
-    event.preventDefault(); // Prevent page refresh
-    window.location.href = "provider.html"; // Redirect page
-  });l
+ document.getElementById("loginForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+
+  const savedUser = JSON.parse(localStorage.getItem("userData"));
+
+  if (savedUser && (savedUser.email === email || savedUser.username === email) && savedUser.password === password) {
+    alert("Login successful! Welcome " + savedUser.name);
+    window.location.href = "index.html"; // redirect after login
+  } else {
+    alert("Invalid email/username or password!");
+  }
+});
+
+
 </script>
 
 </body>
