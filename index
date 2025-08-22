@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LocoLink - Your Local Job Connection</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ✅ Hero Section -->
+  <header id="hero">
+    <nav>
+      <h1 class="logo">LocoLink</h1>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#how">How It Works</a></li>
+        <li><a href="#future">Future Vision</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="hero-content">
+      <h2>Your Local Job Connection</h2>
+      <p>Connecting students and local shops through flexible, availability-based part-time jobs.</p>
+      <div class="hero-buttons">
+        <a href="#" class="btn student">👩‍🎓 I am a Student</a>
+        <a href="#" class="btn provider">🏪 I am a Shop Owner</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ✅ About Section -->
+  <section id="about">
+    <h2>About LocoLink</h2>
+    <p>
+      LocoLink is a hyper-local platform that connects college students with nearby shops, marts, and cafés for part-time jobs. 
+      Students set their daily availability while shop owners post job requirements. Our platform matches them instantly, making 
+      hiring flexible and efficient for both sides.
+    </p>
+  </section>
+
+  <!-- ✅ Features Section -->
+  <section id="features">
+    <h2>Key Features</h2>
+    <div class="features-grid">
+      <div class="feature">
+        <h3>🧑‍🎓 Student Features</h3>
+        <p>Create profile, set availability, apply to jobs that fit your schedule.</p>
+      </div>
+      <
+
+
+  <footer class="container footer">
+    <small>© <span id="year"></span> LocoLink • Made for hackathons & beyond</small>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
