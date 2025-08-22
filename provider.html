@@ -4,12 +4,209 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Provider Dashboard - LocoLink</title>
-  <link rel="stylesheet" href="style2.css">
+  <style>
+   * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  background: #fafafa;
+  color: #222;
+  min-height: 100vh;
+}
+
+/* ===== Navbar ===== */
+.navbar {
+  background: rgba(255, 255, 255, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.8rem 2rem;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(6px);
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #14721a;
+}
+nav img{
+  height: 60px;
+  width: auto;
+  border: none;
+}
+
+.nav-links a {
+  text-decoration: none;
+  margin-left: 1.5rem;
+  font-weight: 600;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #ff7f50; /* salmon */
+}
+
+/* ===== Layout ===== */
+.container {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.card {
+  background: #fff;
+  border-radius: 14px;
+  padding: 1.5rem;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+}
+
+h2 {
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
+  color: #14721a;
+}
+
+/* ===== Form Styling ===== */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form-group label {
+  font-weight: 600;
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+.form-group input,
+textarea,
+select {
+  width: 100%;
+  padding: 0.7rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 0.95rem;
+}
+
+textarea {
+  resize: none;
+  height: 80px;
+}
+
+/* ===== Slots ===== */
+.slot {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr auto;
+  gap: 0.6rem;
+  align-items: center;
+}
+
+.slot input,
+.slot select {
+  padding: 0.5rem;
+  font-size: 0.85rem;
+}
+
+.remove-btn {
+  background: #ff7f50;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 0.8rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.remove-btn:hover {
+  background: #e5673f;
+}
+
+/* ===== Form Actions ===== */
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.add-slot {
+  background: #98ff98;
+  color: #063;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.add-slot:hover {
+  background: #80e080;
+}
+
+.publish-btn {
+  background: #14721a;
+  color: #fff;
+  border: none;
+  padding: 0.7rem 1.4rem;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.publish-btn:hover {
+  background: #0f5a14;
+}
+
+/* ===== Posted Jobs ===== */
+.posted-jobs {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.refresh-btn {
+  align-self: flex-start;
+  background: #ff7f50;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+.refresh-btn:hover {
+  background: #e5673f;
+}
+
+.no-jobs {
+  color: #666;
+  font-style: italic;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 992px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+}
+  </style>
 </head>
 <body style="background-image: url('1755863042727.jpg'); background-size:cover;">
   <!-- Navbar -->
   <nav class="navbar">
-
     <img src="LocoLinkLogo.jpg" alt="locolink Logo">
     <div class="nav-links">
       <a href="Seeker-login.html">Find Jobs</a>
@@ -17,35 +214,34 @@
     </div>
   </nav>
 
- 
   <div class="container">
-   
+    <!-- Post Job -->
     <section class="card post-job">
       <h2>Post a Job</h2>
-      <form>
+      <form id="jobForm">
         <div class="form-group">
           <label>Business Name</label>
-          <input type="text" placeholder="Sai Mart">
+          <input type="text" id="businessName" placeholder="Sai Mart" required>
         </div>
 
         <div class="form-group">
           <label>Location</label>
-          <input type="text" placeholder="Near ABC Circle">
+          <input type="text" id="location" placeholder="Near ABC Circle" required>
         </div>
 
         <div class="form-group">
           <label>Job Title</label>
-          <input type="text" placeholder="Evening Cashier">
+          <input type="text" id="jobTitle" placeholder="Evening Cashier" required>
         </div>
 
         <div class="form-group">
           <label>Description</label>
-          <textarea placeholder="Billing counter, cash handling, customer help"></textarea>
+          <textarea id="description" placeholder="Billing counter, cash handling, customer help" required></textarea>
         </div>
 
-        <h3>Required Slots</h3>
+        <h3>Required Slot</h3>
         <div class="slot">
-          <select>
+          <select id="day">
             <option>Mon</option>
             <option>Tue</option>
             <option>Wed</option>
@@ -54,16 +250,14 @@
             <option>Sat</option>
             <option>Sun</option>
           </select>
-          <input type="time" value="16:00">
-          <input type="time" value="20:00">
-          <input type="number" placeholder="Pay (₹/hr)">
-          <input type="number" placeholder="Distance (km)">
-          <input type="number" placeholder="Seats">
-          <button type="button" class="remove-btn">Remove</button>
+          <input type="time" id="startTime" value="16:00">
+          <input type="time" id="endTime" value="20:00">
+          <input type="number" id="pay" placeholder="Pay (₹/hr)">
+          <input type="number" id="distance" placeholder="Distance (km)">
+          <input type="number" id="seats" placeholder="Seats">
         </div>
 
         <div class="form-actions">
-          <button type="button" class="add-slot">+ Add Slot</button>
           <button type="submit" class="publish-btn">Publish Job</button>
         </div>
       </form>
@@ -72,10 +266,53 @@
     <!-- Posted Jobs -->
     <section class="card posted-jobs">
       <h2>Your Posted Jobs</h2>
-      <button class="refresh-btn">Refresh</button>
-      <p class="no-jobs">No jobs yet. Post your first opening!</p>
+      <div id="jobList">
+        <p class="no-jobs">No jobs yet. Post your first opening!</p>
+      </div>
     </section>
   </div>
+
+  <script>
+    const form = document.getElementById("jobForm");
+    const jobList = document.getElementById("jobList");
+
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      // Get form values
+      const business = document.getElementById("businessName").value;
+      const location = document.getElementById("location").value;
+      const title = document.getElementById("jobTitle").value;
+      const desc = document.getElementById("description").value;
+      const day = document.getElementById("day").value;
+      const start = document.getElementById("startTime").value;
+      const end = document.getElementById("endTime").value;
+      const pay = document.getElementById("pay").value;
+      const distance = document.getElementById("distance").value;
+      const seats = document.getElementById("seats").value;
+
+      // Create job card
+      const jobCard = document.createElement("div");
+      jobCard.classList.add("card");
+      jobCard.innerHTML = `
+        <h3>${title} @ ${business}</h3>
+        <p><strong>Location:</strong> ${location}</p>
+        <p><strong>Description:</strong> ${desc}</p>
+        <p><strong>Slot:</strong> ${day}, ${start} - ${end}</p>
+        <p><strong>Pay:</strong> ₹${pay}/hr | <strong>Distance:</strong> ${distance} km | <strong>Seats:</strong> ${seats}</p>
+      `;
+
+      // Remove "No jobs" message
+      const noJobsMsg = jobList.querySelector(".no-jobs");
+      if (noJobsMsg) noJobsMsg.remove();
+
+      // Append job card
+      jobList.appendChild(jobCard);
+
+      // Clear form
+      form.reset();
+    });
+  </script>
 </body>
 </html>
 
