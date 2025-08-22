@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Provider Dashboard - LocoLink</title>
+  <link rel="stylesheet" href="style2.css">
+</head>
+<body style="background-image: url('1755863042727.jpg'); background-size:cover;">
+  <!-- Navbar -->
+  <nav class="navbar">
+
+    <img src="LocoLinkLogo.jpg" alt="locolink Logo">
+    <div class="nav-links">
+      <a href="Seeker-login.html">Find Jobs</a>
+      <a href="#">Logout</a>
+    </div>
+  </nav>
+
+ 
+  <div class="container">
+   
+    <section class="card post-job">
+      <h2>Post a Job</h2>
+      <form>
+        <div class="form-group">
+          <label>Business Name</label>
+          <input type="text" placeholder="Sai Mart">
+        </div>
+
+        <div class="form-group">
+          <label>Location</label>
+          <input type="text" placeholder="Near ABC Circle">
+        </div>
+
+        <div class="form-group">
+          <label>Job Title</label>
+          <input type="text" placeholder="Evening Cashier">
+        </div>
+
+        <div class="form-group">
+          <label>Description</label>
+          <textarea placeholder="Billing counter, cash handling, customer help"></textarea>
+        </div>
+
+        <h3>Required Slots</h3>
+        <div class="slot">
+          <select>
+            <option>Mon</option>
+            <option>Tue</option>
+            <option>Wed</option>
+            <option>Thu</option>
+            <option>Fri</option>
+            <option>Sat</option>
+            <option>Sun</option>
+          </select>
+          <input type="time" value="16:00">
+          <input type="time" value="20:00">
+          <input type="number" placeholder="Pay (₹/hr)">
+          <input type="number" placeholder="Distance (km)">
+          <input type="number" placeholder="Seats">
+          <button type="button" class="remove-btn">Remove</button>
+        </div>
+
+        <div class="form-actions">
+          <button type="button" class="add-slot">+ Add Slot</button>
+          <button type="submit" class="publish-btn">Publish Job</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- Posted Jobs -->
+    <section class="card posted-jobs">
+      <h2>Your Posted Jobs</h2>
+      <button class="refresh-btn">Refresh</button>
+      <p class="no-jobs">No jobs yet. Post your first opening!</p>
+    </section>
+  </div>
+</body>
+</html>
+

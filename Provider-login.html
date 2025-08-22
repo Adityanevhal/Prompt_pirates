@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | LocoLink</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Login form styling (extra on top of style.css) */
+.login-container {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0px 8px 20px rgba(0,0,0,0.2);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+
+  margin: 120px auto 50px auto;  /* TOP | RIGHT | BOTTOM | LEFT */
+}
+
+
+
+    .login-container h2 {
+      margin-bottom: 1.5rem;
+      color: #333;
+    }
+
+    .form-group {
+      margin-bottom: 1rem;
+      text-align: left;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: bold;
+      color: #444;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 0.8rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      outline: none;
+      font-size: 1rem;
+    }
+
+    .form-group input:focus {
+      border-color: #4e54c8;
+      box-shadow: 0px 0px 6px rgba(78, 84, 200, 0.5);
+    }
+
+    .btn {
+      width: 100%;
+      padding: 0.9rem;
+      background: #4e54c8;
+      color: #fff;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 1rem;
+      transition: 0.3s ease;
+    }
+
+    .btn:hover {
+      background: #3c41a1;
+    }
+
+    .error {
+      color: red;
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+      text-align: left;
+    }
+
+    .signup-link {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    .signup-link a {
+      color: #4e54c8;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .signup-link a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body style="background-image: url('1755863042727.jpg'); background-size:cover;">
+
+  <!-- ✅ Same header/nav bar as in index.html -->
+  <header>
+    <img src="LocoLinkLogo.jpg" alt="locolink Logo">
+    <div class="tagline">Here, flexibility meets opportunity</div>
+  </header>
+
+  <!-- ✅ Login form -->
+  <div class="login-container">
+    <h2>Login</h2>
+    <form id="loginForm">
+      <div class="form-group">
+        <label for="username">Email or Username</label>
+        <input type="text" id="username" value="nevhaladitya43@gmail.com">
+        <div class="error" id="usernameError"></div>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" value="123456">
+        <div class="error" id="passwordError"></div>
+      </div>
+
+      <button type="submit" class="btn">Login</button>
+    </form>
+    <div class="signup-link">
+      Don’t have an account? <a href="#">Sign Up</a>
+    </div>
+  </div>
+
+  <script>
+    const loginForm = document.getElementById("loginForm");
+    const username = document.getElementById("username");
+    const password = document.getElementById("password");
+    const usernameError = document.getElementById("usernameError");
+    const passwordError = document.getElementById("passwordError");
+
+    const validEmails = ["nevhaladitya43@gmail.com", "rushikeshtimande3@gmail.com"];
+    const validPassword = "123456";
+
+    loginForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      let valid = true;
+
+      usernameError.textContent = "";
+      passwordError.textContent = "";
+
+      if (!validEmails.includes(username.value.trim())) {
+        usernameError.textContent = "Invalid email. Use one of the default accounts.";
+        valid = false;
+      }
+
+      if (password.value !== validPassword) {
+        passwordError.textContent = "Incorrect password.";
+        valid = false;
+      }
+
+      if (valid) {
+        // Redirect back to home after login
+        window.location.href = "home.html";
+      }
+    });
+  </script>
+   <script>
+  document.getElementById("loginForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent page refresh
+    window.location.href = "provider.html"; // Redirect page
+  });l
+</script>
+
+</body>
+</html>
