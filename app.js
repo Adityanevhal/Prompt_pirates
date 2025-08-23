@@ -1,5 +1,3 @@
-/* LocoLink – simple front-end demo (localStorage backed) */
-
 const DAYS = ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"];
 
 const LocoLink = (() => {
@@ -283,3 +281,4 @@ document.addEventListener("DOMContentLoaded", ()=>{
   const yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 });
+
