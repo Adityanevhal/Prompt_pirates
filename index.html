@@ -18,11 +18,59 @@
         <h1>Welcome to LocoLink</h1>
         <p>Your Local Job Connection<br></p>
         <div class="options">
-            <a href="Seeker-login.html" class="btn seeker">I'm Student</a>
+            <a href="Student-login.html" class="btn seeker">I'm Student</a>
             <a href="Provider-login.html" class="btn provider">I'm Provider</a>
         </div>
     </div>
     <script src="app.js"></script>
-</body>
 
+
+<!-- Firebase App (always needed) -->
+<script type="module">
+  // Import the SDKs
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-app.js";
+  import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } 
+    from "https://www.gstatic.com/firebasejs/10.13.0/firebase-auth.js";
+  import { getFirestore, collection, addDoc, getDocs } 
+    from "https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore.js";
+
+  // Your Firebase config (replace with your own from Firebase Console)
+  const firebaseConfig = {
+    apiKey: "AIzaSyCDrGQAWc4mep5oyUGcTEhdyp3JxAYL6Co",
+    authDomain: "locolink-8729e.firebaseapp.com",
+    projectId: "locolink-8729e",
+    storageBucket: "locolink-8729e.firebasestorage.app",
+    messagingSenderId: "259070350713",
+    appId: "1:259070350713:web:64d8bb5f3c016caf60cba8",
+  }
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+  const db = getFirestore(app);
+
+  // Example: Signup
+  async function signupUser(email, password, username, age, address) {
+    try {
+      // Register in Firebase Auth
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      const user = userCredential.user;
+
+      // Save extra info in Firestore
+      await addDoc(collection(db, "users"), {
+        uid: user.uid,
+        username,
+        email,
+        age,
+        address
+      });
+
+      alert("Signup successful!");
+    } catch (error) {
+      console.error("Error signing up:", error.message);
+    }
+  }
+</script>
+
+</body>
 </html>
