@@ -47,7 +47,7 @@
     </div>
 
     <div class="nav-right">
-      <a href="#">Profile</a>
+      <a href="profile-section.html">Profile</a>
       <a href="#">Messages</a>
     </div>
   </nav>
@@ -78,10 +78,10 @@
     <aside class="profile">
       <h3>Your Profile</h3>
       <div class="profile-pic">
-        <img src="1_1.jpg" alt="Profile Picture">
+        <img src="1_1.jpg" alt="Profile Picture" id="sidebarProfileImg">
       </div>
-      <h4>Aditya Nevhal</h4>
-      <p>YCCE Student | 2nd Year</p>
+      <h4 id="sidebarProfileName">Aditya Nevhal</h4>
+      <p id="sidebarCollege">YCCE Student | 2nd Year</p>
       <button class="edit-btn" onclick="window.location.href='edit-profile.html'">Edit Profile</button>
     </aside>
   </div>
@@ -109,14 +109,31 @@
         jobCard.innerHTML = `
           <h4>${job.business} - ${job.title}</h4>
           <p>${job.day} | ${job.pay}/hr | ${job.distance} km from  ${job.location}</p>
-          
           <button class="apply-btn" onclick="window.location.href='confirmation.html'">Apply Now</button>
         `;
         jobsContainer.appendChild(jobCard);
       });
     }
+
+    // Load profile from localStorage (for sidebar profile)
+    window.onload = function() {
+      const savedProfile = JSON.parse(localStorage.getItem("profileData"));
+      const savedImg = localStorage.getItem("profileImage");
+
+      if (savedProfile) {
+        document.getElementById("sidebarProfileName").textContent = savedProfile.name || "Your Name";
+        document.getElementById("sidebarCollege").textContent = savedProfile.college 
+          ? savedProfile.college + " Student" 
+          : "Student";
+      }
+
+      if (savedImg) {
+        document.getElementById("sidebarProfileImg").src = savedImg;
+      }
+    };
   </script>
 
 </body>
 </html>
+
 
