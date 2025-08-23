@@ -106,7 +106,7 @@
 
       } catch (error) {
         if (error.code === "auth/email-already-in-use") {
-          alert("❌ Email already registered. Please use another email.");
+          alert("✅ Email Successfully logged In.");
           window.location.href = "Provider-login.html";
         } else {
           alert("Error: " + error.message);
